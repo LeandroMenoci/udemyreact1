@@ -1,6 +1,7 @@
 
 import { useEffect, useState } from 'react';
 import './App.css';
+import PostCard from './components/PostCard';
 
 export default function App() {
   const [posts, setPosts] = useState([])
@@ -22,17 +23,18 @@ export default function App() {
     return { ...post, cover: photos[index].url }
   })
 
+
   return (
     <section className='container'>
       <div className='posts'>
         {postsAndPhotos.map(post => (
-          <div className="post">
-            <img src={post.cover} alt={post.title} />
-            <div key={post.id} className='post-content'>
-              <h1 >{post.title}</h1>
-              <p>{post.body}</p>
-            </div>
-          </div>
+          <PostCard
+            key={post.id}
+            title={post.title}
+            body={post.body}
+            id={post.id}
+            cover={post.cover}
+          />
         ))}
       </div>
     </section>
