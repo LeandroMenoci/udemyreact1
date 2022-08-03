@@ -1,5 +1,6 @@
-import './styles.css';
 
+import React from 'react';
+import './styles.css'
 import { Button } from '../../components/Button';
 import { Posts } from '../../components/Posts';
 import { TextInput } from '../../components/TextInput';
@@ -14,7 +15,7 @@ export const Home = () => {
   const [searchValue, setSearchValue] = useState('')
 
   const noMorePosts = page + postsPerPage >= allPosts.length
-  const filteredPosts = !!searchValue ?
+  const filteredPosts = searchValue ?
     allPosts.filter(post => {
       return post.title.toLowerCase().includes(searchValue.toLocaleLowerCase())
     })
